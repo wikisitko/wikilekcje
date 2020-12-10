@@ -17,11 +17,12 @@ namespace zadanie_Koszyk
             this.cena = cena1;
             
         }
-       
+
+        public int Cena { get => cena; }
 
         public override string ToString()
         {
-            return $"Marka telefonu to {marka}, model to {model}, a cena to {cena}";
+            return $"Marka telefonu to {marka}, model to {model}, a cena to {Cena}";
         }
     }
 
