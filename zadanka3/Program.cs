@@ -4,7 +4,7 @@ namespace zadanka3
 {
     class Program
     {
-        #region Zadanie1
+       
         static void Zadanie1()
         {
             Console.Write("a: ");
@@ -18,25 +18,21 @@ namespace zadanka3
                 Console.WriteLine(i);
             } 
         }
-        #endregion
 
-        static void Main(string[] args)
+        static void Zadanie2()
         {
-            ////ZADANIE1
-            //Zadanie1();
-            
-
-            ////ZADANIE 2
-            /*Console.Write("a: ");
+            Console.Write("a: ");
             int a = Int32.Parse(Console.ReadLine());
 
             for (int i = 1; i <= a; i++)
             {
                 Console.WriteLine(Math.Pow(i, 2));
-            }*/
+            }
+        }
 
-            ////ZADANIE 3
-            /*Console.Write("a: ");
+        static void Zadanie3()
+        {
+            Console.Write("a: ");
             int a = Int32.Parse(Console.ReadLine());
 
             Console.Write("b: ");
@@ -46,12 +42,14 @@ namespace zadanka3
 
             for (int i = a; i <= b; i++)
             {
-                s += i;                
+                s += i;
             }
-            Console.WriteLine(s); */
+            Console.WriteLine(s);
+        }
 
-            ////ZADANIE 4 - może jeszcze wymyślę...
-            /*Console.Write("a: ");
+        static void Zadanie4() //poprawka
+        {
+            Console.Write("a: ");
             int a = Int32.Parse(Console.ReadLine());
 
             Console.Write("b: ");
@@ -68,26 +66,31 @@ namespace zadanka3
                 while (s < 1000);
 
                 Console.WriteLine(s);
-            } */
+            }
+        }
 
-            ////ZADANIE 5
-            ////ZADANIE 6
-            /*
+        static void Zadanie5() //poprawka
+        {
+
+        }
+
+        static void Zadanie6()
+        {
             Console.Write("Podaj x: ");
             int odpowiedz = Int32.Parse(Console.ReadLine());
             int wynik = 0;
 
-            while (odpowiedz!=0)
+            while (odpowiedz != 0)
             {
                 wynik += (odpowiedz % 10);
                 odpowiedz /= 10;
             }
 
-            Console.WriteLine(wynik); */
+            Console.WriteLine(wynik);
+        }
 
-
-            ////ZADANIE 7
-            /*
+        static void Zadanie7()
+        {
             int wartosc = 0;
             int liczba;
 
@@ -100,11 +103,10 @@ namespace zadanka3
             while (liczba != 0);
 
             Console.WriteLine(wartosc);
+        }
 
-            */
-
-            ////ZADANIE 8
-            /*
+        static void Zadanie8()
+        {
             Random rnd = new Random();
             int wylosowana = rnd.Next(0, 21);
             int odpowiedz;
@@ -130,61 +132,62 @@ namespace zadanka3
                 }
             }
             while (wylosowana != odpowiedz);
+        }
 
-           */
+        static void Zadanie9()
+        {
+            int wartosc = 0;
 
+            Console.Write("1: ");
+            int first = Int32.Parse(Console.ReadLine());
 
-            ////ZADANIE 9
+            if (first % 3 == 0)
+            {
+                wartosc += 1;
+            }
 
-            /* int wartosc = 0; 
+            Console.Write("2: ");
+            int second = Int32.Parse(Console.ReadLine());
 
-             Console.Write("1: ");
-             int first = Int32.Parse(Console.ReadLine());
+            if (second % 3 == 0)
+            {
+                wartosc += 1;
+            }
 
-             if (first % 3 == 0)
-             {
-                 wartosc += 1;
-             }
+            Console.Write("3: ");
+            int third = Int32.Parse(Console.ReadLine());
 
-             Console.Write("2: ");
-             int second = Int32.Parse(Console.ReadLine());
+            if (third % 3 == 0)
+            {
+                wartosc += 1;
+            }
 
-             if (second % 3 == 0)
-             {
-                 wartosc += 1;
-             }
+            Console.Write("4: ");
+            int fourth = Int32.Parse(Console.ReadLine());
 
-             Console.Write("3: ");
-             int third = Int32.Parse(Console.ReadLine());
+            if (fourth % 3 == 0)
+            {
+                wartosc += 1;
+            }
 
-             if (third % 3 == 0)
-             {
-                 wartosc += 1;
-             }
+            Console.Write("5: ");
+            int fifth = Int32.Parse(Console.ReadLine());
 
-             Console.Write("4: ");
-             int fourth = Int32.Parse(Console.ReadLine());
+            if (fifth % 3 == 0)
+            {
+                wartosc += 1;
+            }
 
-             if (fourth % 3 == 0)
-             {
-                 wartosc += 1;
-             }
+            Console.WriteLine(wartosc);
+        }
 
-             Console.Write("5: ");
-             int fifth = Int32.Parse(Console.ReadLine()); 
+        static void Zadanie10() //poprawka
+        {
 
-             if (fifth%3==0)
-             {
-                 wartosc += 1;
-             }
+        }
 
-             Console.WriteLine(wartosc);
-            */
-
-            ////ZADANIE 10
-            ////ZADANIE 11
-
-            /*
+        static void Zadanie11() //poprawka
+        {
             int[] tablica = new int[5];
 
             Console.Write("Podaj pierwszą wartość: ");
@@ -206,20 +209,22 @@ namespace zadanka3
             {
                 Console.WriteLine(tablica[i]);
             }
-            */
+        }
 
-            ////ZADANIE 12
-            /*
-            int rozmiarTablicy = Int32.Parse(Console.ReadLine());
+        static void Zadanie12() //poprawka
+        {
+             int rozmiarTablicy = Int32.Parse(Console.ReadLine());
 
-            int[] tablica = new int [rozmiarTablicy];
-            */
+        int[] tablica = new int[rozmiarTablicy];
+    }
 
+        static void Main(string[] args)
+        {
             //data lekcji, data zapalty, kto, cena
             //17-12-2020, ping, Wiktoria, 80
             //16-12-2020, 16-12-2020, Ada, 80
 
-            DateTime
+         
 
             Console.ReadLine();
         }
