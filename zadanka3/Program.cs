@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace zadanka3
 {
@@ -55,18 +56,16 @@ namespace zadanka3
             Console.Write("b: ");
             int b = Int32.Parse(Console.ReadLine());
             int s = 1;
+            int i = 1;
 
-            for (int i = a; i <= b; i++)
+            
+            for (i = a; i <= b; i++) //s ma byc mniejsze od 1000
             {
-
-                do
-                {
-                    s = s * i;
-                }
-                while (s < 1000);
-
-                Console.WriteLine(s);
+                s = s * i;
+                Console.WriteLine(i);
             }
+
+            Console.WriteLine(i);
         }
 
         static void Zadanie5() //poprawka
@@ -183,32 +182,29 @@ namespace zadanka3
 
         static void Zadanie10() //poprawka -- w dobrą stronę:)
         {
+            int i;
+            
             Console.Write("Podaj ile liczb: ");
             int ileLiczb = Int32.Parse(Console.ReadLine());
 
             int[] Liczby = new int[ileLiczb];
 
-            for (int i = 0; i < ileLiczb; i++)
+            for (i = 0; i < ileLiczb; i++)
             {
                 Liczby[i] = Int32.Parse(Console.ReadLine());
 
-               
-
             }
 
-            for (int j = 0; j < ileLiczb; j++)
+            if (Liczby[i] <= Liczby[i + 1])
             {
-                if (Liczby[j] <= Liczby[j + 1])
-                {
-                    Console.WriteLine("TAK");
-                }
-                else
-                {
-                    Console.WriteLine("NIE");
-                }
+                Console.WriteLine("TAK");
+            }
+            else
+            {
+                Console.WriteLine("NIE");
             }
 
-        
+
         }
 
         static void Zadanie11()
@@ -227,12 +223,81 @@ namespace zadanka3
             }
         }
 
-        static void Zadanie12() //poprawka
+        static void Zadanie12() //ok ale za duze liczby
         {
-             int rozmiarTablicy = Int32.Parse(Console.ReadLine());
+            Random rand = new Random();
+            int rozmiarTablicy = Int32.Parse(Console.ReadLine());
 
-        int[] tablica = new int[rozmiarTablicy];
-    }
+            long[] tablica1 = new long[rozmiarTablicy];
+
+            for (int i = 0; i < rozmiarTablicy; i++)
+            {
+                tablica1[i] = rand.Next();
+                Console.Write(tablica1[i] + " ");
+            }
+
+            Console.WriteLine("\n \n");
+
+            long[] tablica2 = new long[rozmiarTablicy];
+
+            for (int i = 0; i < rozmiarTablicy; i++)
+            {
+                tablica2[i] = rand.Next();
+                Console.Write(tablica2[i] + " ");
+            }
+
+            Console.WriteLine("\n \n");
+            
+            for (int i = 0; i < rozmiarTablicy; i++)
+            {
+                Console.Write(tablica2[i] + tablica1[i] + " ");
+            }
+
+
+        }
+
+        static void Zadanie13() //mediana no idea
+        {
+            double srednia = 0;
+            int i;
+            int ileLiczb = Int32.Parse(Console.ReadLine());
+
+            int[] tablicaLiczb = new int[ileLiczb];
+
+            for (i = 0; i < ileLiczb; i++)
+            {
+                tablicaLiczb[i] = Int32.Parse(Console.ReadLine());
+                srednia += tablicaLiczb[i];
+            }
+
+            Console.WriteLine($"Średnia to: {srednia/ileLiczb}");
+
+            
+
+        }
+
+        static void Zadanie14()//????????
+        {
+            string tekst = Console.ReadLine();
+            int count = 0;
+
+            Console.WriteLine($"Długość tekstu to: {tekst.Length}");
+
+            string[] tablicaZnakow = new string[tekst.Length];
+
+            char[] tablicaSamoglosek = { 'a', 'e', 'i', 'o', 'u' };
+
+            if (tekst.Contains('a'))
+            {
+                count++;
+            }
+            else
+            {
+
+            }
+            Console.WriteLine(count);
+
+        }
 
         static void Main(string[] args)
         {
@@ -240,7 +305,7 @@ namespace zadanka3
             //17-12-2020, ping, Wiktoria, 80
             //16-12-2020, 16-12-2020, Ada, 80
 
-            Zadanie10();
+            Zadanie14();
 
             Console.ReadLine();
         }
