@@ -63,6 +63,10 @@ namespace zadanka3
             {
                 s = s * i;
                 Console.WriteLine(i);
+                if(s > 1000)
+                {
+                    break;
+                }
             }
 
             Console.WriteLine(i);
@@ -70,7 +74,24 @@ namespace zadanka3
 
         static void Zadanie5() //poprawka
         {
+            int min, max;
+            min = max = int.Parse(Console.ReadLine());
 
+            for(int i = 0; i < 5; i++)
+            {
+                int a = int.Parse(Console.ReadLine());
+                if(a > max)
+                {
+                    max = a;
+                }
+                if(a < min)
+                {
+                    min = a;
+                }
+            }
+
+            Console.WriteLine("Min: " + min);
+            Console.WriteLine("Max: " + max);
         }
 
         static void Zadanie6()
@@ -192,10 +213,19 @@ namespace zadanka3
             for (i = 0; i < ileLiczb; i++)
             {
                 Liczby[i] = Int32.Parse(Console.ReadLine());
-
             }
 
-            if (Liczby[i] <= Liczby[i + 1])
+            bool rosnacy = true;
+            for(i = 0; i < ileLiczb - 1; i++)
+            {
+                if (Liczby[i] > Liczby[i + 1])
+                {
+                    rosnacy = false;
+                    break;
+                }
+            }
+            
+            if(rosnacy)
             {
                 Console.WriteLine("TAK");
             }
@@ -204,6 +234,7 @@ namespace zadanka3
                 Console.WriteLine("NIE");
             }
 
+            //Console.WriteLine(rosnacy ? "TAK" : "NIE");
 
         }
 
@@ -232,7 +263,7 @@ namespace zadanka3
 
             for (int i = 0; i < rozmiarTablicy; i++)
             {
-                tablica1[i] = rand.Next();
+                tablica1[i] = rand.Next(0, 10);
                 Console.Write(tablica1[i] + " ");
             }
 
@@ -242,7 +273,7 @@ namespace zadanka3
 
             for (int i = 0; i < rozmiarTablicy; i++)
             {
-                tablica2[i] = rand.Next();
+                tablica2[i] = rand.Next(0, 10);
                 Console.Write(tablica2[i] + " ");
             }
 
@@ -270,10 +301,16 @@ namespace zadanka3
                 srednia += tablicaLiczb[i];
             }
 
-            Console.WriteLine($"Średnia to: {srednia/ileLiczb}");
-
-            
-
+            Console.WriteLine($"Średnia to: {srednia / ileLiczb}");
+            Array.Sort(tablicaLiczb);
+            if (ileLiczb % 2 == 1)
+            {
+                Console.WriteLine(tablicaLiczb[ileLiczb / 2]);
+            }
+            else
+            {
+                Console.WriteLine((tablicaLiczb[ileLiczb / 2] + tablicaLiczb[ileLiczb / 2 - 1])/2);
+            }
         }
 
         static void Zadanie14()//????????
@@ -283,20 +320,45 @@ namespace zadanka3
 
             Console.WriteLine($"Długość tekstu to: {tekst.Length}");
 
-            string[] tablicaZnakow = new string[tekst.Length];
+            string samogloski = "aeoiuy";
 
-            char[] tablicaSamoglosek = { 'a', 'e', 'i', 'o', 'u' };
-
-            if (tekst.Contains('a'))
+            for(int i = 0; i < tekst.Length; i++)
             {
-                count++;
+                //tekst[i]
+                if (samogloski.Contains(tekst[i]))
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine(count);
+
+        }
+
+        static void Zadanie15()
+        {
+            string input = Console.ReadLine();
+            int countr = 0;
+            int counto = 0;
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                //input[i]
+                if (input[i] == 'r')
+                {
+                    countr++;
+                }
+            }
+
+            counto = input.Length - countr;
+            if (countr<counto)
+            {
+                Console.WriteLine(countr);
             }
             else
             {
-
+                Console.WriteLine(counto);
             }
-            Console.WriteLine(count);
-
         }
 
         static void Main(string[] args)
@@ -304,8 +366,11 @@ namespace zadanka3
             //data lekcji, data zapalty, kto, cena
             //17-12-2020, ping, Wiktoria, 80
             //16-12-2020, 16-12-2020, Ada, 80
+            //Zadanie13();
+            //Zadanie15();
 
-            Zadanie14();
+            //Random rand = new Random();
+            //Enumerable.Range(0, 10).Select(x => rand.Next(0, 10)).ToList().ForEach(Console.WriteLine);
 
             Console.ReadLine();
         }
