@@ -143,37 +143,104 @@ namespace zadanka4
                 Console.Write(tablicaLiczb[i] + " ");
             }
 
-        }
-        
-        static void Zadanie7()
+        }        
+        static void Zadanie7() //nie wykombinowalam:<
         {
             int[] tablica = new int[6];
 
+            
+
+            for (int i = 0; i < tablica.Length; i++)
+            {
+                tablica[i] = Int32.Parse(Console.ReadLine());
+
+                for (int j = 0; j < tablica.Length; j++)
+                {
+                    if (tablica[i] == tablica[j])
+                    {
+                       
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wprowadzona liczba już istnieje, podaj inną.");
+                        i--;
+                    }
+                }
+
+            }
+
+            for (int i = 0; i < tablica.Length; i++)
+            {
+                Console.WriteLine(tablica[i]);
+            }
+           
+            
+        }
+        static void Zadanie8()
+        {
+            //1 - papier
+            //2 - kamień
+            //3 - nożyce
+            Random rand = new Random();
+            int symbol;
+            int odp;
+            do
+            {
+                Console.Write("Podaj numer symbolu: ");
+                symbol = Int32.Parse(Console.ReadLine());
+                odp = rand.Next(1, 3);
+
+                if (symbol == odp)
+                {
+                    Console.WriteLine($"Gracz podał: {symbol}, komputer wylosował: {odp}. Remis!");
+                }
+                else
+                {
+                    Console.WriteLine($"Gracz podał: {symbol}, komputer wylosował: {odp}. Przegrana!");
+                }
+            }
+            while (symbol == odp);
+
+        }
+
+        static void Zadanie9() //nie umiem sprawdzic czy numerki sie nie powtarzaja
+        {
+            Random rand = new Random();
+            int[] numerki = new int[6];
+            int[] wylosowane = new int[6];
+            int trafienia = 0;
+
             for (int i = 0; i < 6; i++)
             {
-
+                numerki[i] = Int32.Parse(Console.ReadLine());
+                wylosowane[i] = rand.Next(1, 42);
             }
-            Console.Write("Podaj liczbę: ");
-            tablica[0] = Int32.Parse(Console.ReadLine());
 
-            Console.Write("Podaj liczbę: ");
-            tablica[1] = Int32.Parse(Console.ReadLine());
+            Console.Write("Wylosowano: ");
 
-            if (tablica[1] == tablica[0])//if (tablica i == tablica i-1
+            for (int i = 0; i < wylosowane.Length; i++)
             {
-                Console.WriteLine("Wprowadzona liczba już istnieje, podaj inną.");
+                Console.Write($"{wylosowane[i]} ");
+
+                if (wylosowane.ToString().Contains(numerki[i].ToString()))
+                {
+                    trafienia++;
+                }
             }
-            Console.Write("Podaj liczbę: ");
-            tablica[1] = Int32.Parse(Console.ReadLine());
 
+            Console.WriteLine($"\nIlość trafień: {trafienia}");
+           
 
+        }
 
+        static void Zadanie10() //nie rozumiem (albo już za późno)
+        {
 
         }
 
         static void Main(string[] args)
         {
-            Zadanie6();
+            Zadanie9();
             Console.ReadLine();
         }
     }
