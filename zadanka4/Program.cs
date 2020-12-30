@@ -33,7 +33,7 @@ namespace zadanka4
 
             string nip = Console.ReadLine();
 
-            if(nip[0] == '1' && nip[1] == '1' && nip[2] == '8')
+            if(nip.StartsWith("118"))
             {
                 Console.WriteLine("Warszawa-Bielany");
             }
@@ -64,7 +64,8 @@ namespace zadanka4
 
             for (int i = 0; i < text.Length; i++)
             {
-                if (wielkieLitery.Contains(text[i]))
+                //if (wielkieLitery.Contains(text[i]))
+                if(Char.IsUpper(text[i]))
                 {
                     count++;
                 }
@@ -143,28 +144,37 @@ namespace zadanka4
                 Console.Write(tablicaLiczb[i] + " ");
             }
 
-        }        
+        }      
+        
+        static bool CzyIstnieje(int[] tab, int wartosc)
+        {
+            for (int i = 0; i < tab.Length; i++)
+            {
+                if (tab[i]==wartosc)
+                {
+                    return true;
+                }
+                
+            }
+            return false;
+        }
         static void Zadanie7() //nie wykombinowalam:<
         {
             int[] tablica = new int[6];
 
             
 
-            for (int i = 0; i < tablica.Length; i++)
+            for (int i = 0; i < tablica.Length; )
             {
-                tablica[i] = Int32.Parse(Console.ReadLine());
-
-                for (int j = 0; j < tablica.Length; j++)
+                int a = Int32.Parse(Console.ReadLine());
+                if(CzyIstnieje(tablica, a))
                 {
-                    if (tablica[i] == tablica[j])
-                    {
-                       
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wprowadzona liczba już istnieje, podaj inną.");
-                        i--;
-                    }
+                    Console.WriteLine("Podana wartość istnieje w tablicy");
+                }
+                else
+                {
+                    tablica[i] = a;
+                    i++;
                 }
 
             }
@@ -186,17 +196,18 @@ namespace zadanka4
             int odp;
             do
             {
+                string[] symbole = new string[] { "kamien", "papier", "nozyce" };
                 Console.Write("Podaj numer symbolu: ");
                 symbol = Int32.Parse(Console.ReadLine());
-                odp = rand.Next(1, 3);
+                odp = rand.Next(1, 4); //[1, 4)
 
                 if (symbol == odp)
                 {
-                    Console.WriteLine($"Gracz podał: {symbol}, komputer wylosował: {odp}. Remis!");
+                    Console.WriteLine($"Gracz podał: {symbole[symbol-1]}, komputer wylosował: {symbole[odp-1]}. Remis!");
                 }
                 else
                 {
-                    Console.WriteLine($"Gracz podał: {symbol}, komputer wylosował: {odp}. Przegrana!");
+                    Console.WriteLine($"Gracz podał: {symbole[symbol - 1]}, komputer wylosował: {symbole[odp - 1]}. Przegrana!");
                 }
             }
             while (symbol == odp);
@@ -218,13 +229,19 @@ namespace zadanka4
 
             Console.Write("Wylosowano: ");
 
+            Console.WriteLine(wylosowane.ToString());
+
             for (int i = 0; i < wylosowane.Length; i++)
             {
                 Console.Write($"{wylosowane[i]} ");
 
-                if (wylosowane.ToString().Contains(numerki[i].ToString()))
+                for (int j = 0; j < numerki.Length; j++)
                 {
-                    trafienia++;
+                    if(wylosowane[i] == numerki[j])
+                    {
+                        trafienia++;
+                        break;
+                    }
                 }
             }
 
