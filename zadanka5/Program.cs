@@ -13,7 +13,7 @@ namespace zadanka5
                 {
                     Console.Write("*");
                 }
-                Console.WriteLine("\n");
+                Console.WriteLine();
             }
         }
 
@@ -30,10 +30,15 @@ namespace zadanka5
             }
         }
 
-        static void Zadanie3()
+        static void Zadanie3() //przypomnnieć żebyś pokazał alternatywny sposób
         {
             Random rand = new Random();
-
+            //Utworz tablice i wpisz tam wartosci od 0 do 20
+            //wykonaj w petli 100 razy nastepujace kroki
+            //>>>wylosuj index A
+            //>>>wylosuj index B
+            //>>>przestaw miejscami wartosci pod indeksami A i B
+            //wyswietl pierwsze 6 wartosci z tablicy
         }
 
         static void Main(string[] args)
