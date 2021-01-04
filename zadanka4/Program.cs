@@ -250,6 +250,11 @@ namespace zadanka4
 
         }
 
+        static void PodajIloscPosiadanej()
+        {
+            Console.Write("Podaj ilości posiadanej farby w kolejności R (red), Y (yellow), B (blue): ");
+
+        }
         static void Zadanie10()
         {
             //1 - żółty -> 10L Y
@@ -258,13 +263,18 @@ namespace zadanka4
             //4 - fioletowy -> 3L: 1,5L R + 1,5L B,
             //5 - czerwony -> 3L R,
             //6 - pomarańczowy -> 8L: 4L Y + 4L R
+                                  
+            //basic[0] - red,
+            //basic[1] - yellow,
+            //basic[2] - blue
+            //jak to ubrać w słowa żeby było bardziej understable? 
             
-            
-            Console.Write("Podaj ilości posiadanej farby w kolejności R (red), Y (yellow), B (blue): ");
-            
-            double red = Double.Parse(Console.ReadLine());
-            double yellow = Double.Parse(Console.ReadLine());
-            double blue = Double.Parse(Console.ReadLine());
+            double[] basic = new double[3];
+            for (int i = 0; i < basic.Length; i++)
+            {
+                basic[i] = Double.Parse(Console.ReadLine());
+            }
+
             
             Console.Write("\nPodaj ilości potrzebne do pomalowania sal: ");
 
@@ -275,49 +285,27 @@ namespace zadanka4
                 neededColor[i] = Double.Parse(Console.ReadLine());
             }
 
-            //int green = blue / 2 + yellow / 2;
-            //int purple = red / + blue / 2;
-            //int orange = yellow / 2 + red / 2;
+           
+            basic[1] = basic[1] - neededColor[0] - (neededColor[1]/2) - (neededColor[5]/2);
+            basic[0] = basic[0] - (neededColor[3] / 2) - neededColor[4] - (neededColor[5] / 2);
+            basic[2] = basic[2] - (neededColor[1] / 2) - neededColor[2] - (neededColor[3] / 2);
 
-            yellow = yellow - neededColor[0] - (neededColor[1]/2) - (neededColor[5]/2);
-            red = red - (neededColor[3] / 2) - neededColor[4] - (neededColor[5] / 2);
-            blue = blue - (neededColor[1] / 2) - neededColor[2] - (neededColor[3] / 2);
-
-            Console.WriteLine($"Pozostało czerwona: {red}, Żółta: {yellow}, Niebieska: { blue}");
-
-            //chwilowo za chiny nie wiem jak to uprościć xD 
+            Console.WriteLine($"Pozostało czerwona: {basic[0]}, Żółta: {basic[1]}, Niebieska: { basic[2]}");
             Console.WriteLine("===============================================");
-            
-            if (red < 0)
-            {
-                Console.WriteLine(Math.Sqrt(red*red));
-            }
 
-            else
+            for (int i = 0; i < basic.Length; i++)
             {
-                Console.WriteLine("0");
-            }
+                if (basic[i] < 0)
+                {
+                    Console.WriteLine(Math.Sqrt(basic[i] * basic[i]));
+                }
 
-            if (yellow < 0)
-            {
-                Console.WriteLine(Math.Sqrt(yellow*yellow));
+                else
+                {
+                    Console.WriteLine("0");
+                }
             }
-
-            else
-            {
-                Console.WriteLine("0");
-            }
-
-            if (blue < 0)
-            {
-                Console.WriteLine(Math.Sqrt(blue*blue));
-            }
-            else
-            {
-                Console.WriteLine("0");
-            }
-
-
+          
 
         }
 
