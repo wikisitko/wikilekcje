@@ -5,39 +5,47 @@ namespace programLekcje
 {
     class Program
     {
-           
-        
         static void Main(string[] args)
         {
-            string Path = @"C:\Users\Wiktoria Sitko\Documents\GitHub\wikilekcje\programLekcje\lekcje.csv";
-            var lines = File.ReadAllLines(Path);
-            string payment;
+            Lekcja[] lekcje = ZaladujLekcje(@"C:\Users\Wiktoria Sitko\Documents\GitHub\wikilekcje\programLekcje\lekcje.csv");
+            WyswietlLekcje(lekcje);
 
+                       
+        }
 
-            for (int i = 1; i < lines.Length; i++)
+        static Lekcja[] ZaladujLekcje(string nazwaPliku)
+        {
+            var linie = File.ReadAllLines(nazwaPliku);
+            Lekcja[] lekcje = new Lekcja[linie.Length];
+
+            for(int i = 0; i < lekcje.Length; i++)
             {
-                var items = lines[i].Split(",");
-                string date = items[0];
-                payment = items[1];
-                string name = items[2];
-                int price = Int32.Parse(items[3]);
+                var linia = linie[i].Split(",");
+                Lekcja l1 = new Lekcja(linia[0], linia[1], linia[2], Int32.Parse(linia[3]));
+                lekcje[i] = l1;
+            }
+            return lekcje;
+        }
 
-                //Console.WriteLine($"{date}  {payment}  {name}  {price}");
+        static void WyswietlLekcje(Lekcja[] lekcje)
+        {
+            for (int i = 0; i < lekcje.Length; i++)
+            {
+                Console.WriteLine(lekcje[i]);
+            }
+        }
+
+        static void KtoPing(Lekcja[] lekcje)
+        {
+            for (int i = 0; i < lekcje.Length; i++)
+            {
+                if (/*jak się dostać do "payment"?*/ == "ping")
+                {
+
+                }
             }
 
-            bool czyPing ()
-            {
-                if (payment == "ping")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-
+            
         }
     }
 }
