@@ -60,7 +60,7 @@ namespace zadanka4
 
             //Console.WriteLine(text);
             int count = 0;
-            string wielkieLitery = "ABCDEFGHIJKLŁMNOPRSTUWXYZŻŹĄĘÓ";
+            //string wielkieLitery = "ABCDEFGHIJKLŁMNOPRSTUWXYZŻŹĄĘÓ";
 
             for (int i = 0; i < text.Length; i++)
             {
@@ -250,14 +250,80 @@ namespace zadanka4
 
         }
 
-        static void Zadanie10() //nie rozumiem (albo już za późno)
+        static void Zadanie10()
         {
+            //1 - żółty -> 10L Y
+            //2 - zielony -> 4L: 2L Y + 2L B,
+            //3 - niebieski -> 5L B
+            //4 - fioletowy -> 3L: 1,5L R + 1,5L B,
+            //5 - czerwony -> 3L R,
+            //6 - pomarańczowy -> 8L: 4L Y + 4L R
+            
+            
+            Console.Write("Podaj ilości posiadanej farby w kolejności R (red), Y (yellow), B (blue): ");
+            
+            double red = Double.Parse(Console.ReadLine());
+            double yellow = Double.Parse(Console.ReadLine());
+            double blue = Double.Parse(Console.ReadLine());
+            
+            Console.Write("\nPodaj ilości potrzebne do pomalowania sal: ");
+
+            
+            double [] neededColor = new double[6]; //ilość farby
+            for (int i = 0; i < 6; i++)
+            {
+                neededColor[i] = Double.Parse(Console.ReadLine());
+            }
+
+            //int green = blue / 2 + yellow / 2;
+            //int purple = red / + blue / 2;
+            //int orange = yellow / 2 + red / 2;
+
+            yellow = yellow - neededColor[0] - (neededColor[1]/2) - (neededColor[5]/2);
+            red = red - (neededColor[3] / 2) - neededColor[4] - (neededColor[5] / 2);
+            blue = blue - (neededColor[1] / 2) - neededColor[2] - (neededColor[3] / 2);
+
+            Console.WriteLine($"Pozostało czerwona: {red}, Żółta: {yellow}, Niebieska: { blue}");
+
+            //chwilowo za chiny nie wiem jak to uprościć xD 
+            Console.WriteLine("===============================================");
+            
+            if (red < 0)
+            {
+                Console.WriteLine(Math.Sqrt(red*red));
+            }
+
+            else
+            {
+                Console.WriteLine("0");
+            }
+
+            if (yellow < 0)
+            {
+                Console.WriteLine(Math.Sqrt(yellow*yellow));
+            }
+
+            else
+            {
+                Console.WriteLine("0");
+            }
+
+            if (blue < 0)
+            {
+                Console.WriteLine(Math.Sqrt(blue*blue));
+            }
+            else
+            {
+                Console.WriteLine("0");
+            }
+
+
 
         }
 
         static void Main(string[] args)
         {
-            Zadanie9();
+            Zadanie10();
             Console.ReadLine();
         }
     }
