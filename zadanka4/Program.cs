@@ -297,7 +297,7 @@ namespace zadanka4
             {
                 if (basic[i] < 0)
                 {
-                    Console.WriteLine(Math.Sqrt(basic[i] * basic[i]));
+                    Console.WriteLine(Math.Abs(basic[i]));
                 }
 
                 else
