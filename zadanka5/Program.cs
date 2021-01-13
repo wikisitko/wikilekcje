@@ -246,9 +246,40 @@ namespace zadanka5
             Console.WriteLine($"Min {dane.InwestycyjneMin()}");
 
         }
+
+        static void Zadanie7()
+        {
+            string liczby = Console.ReadLine();
+            string[] tab = liczby.Split(" ");
+            //int[] tablica = new int[liczby.Length];
+            int n = tab.Length;
+
+            bool zawiera = true;
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (int.Parse(tab[i]) != j)
+                    {
+                        zawiera = false;
+                    }
+                }
+            }
+
+            if (zawiera == true)
+            {
+                Console.WriteLine("TAK");
+            }            
+            else
+            {
+                Console.WriteLine("NIE");
+            }
+
+        }
         static void Main(string[] args)
         {
-            Zadanie6();
+            Zadanie7();
             //for(int i = 0; i < 100; i++)
             //{
             //    Console.Write(i + "_____\r");
