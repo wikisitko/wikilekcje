@@ -8,7 +8,6 @@ namespace Plyta_Glowna
 {
     class PlytaGlowna
     {
-        public int licznik = 0;
         private string producent;
         private int maxRam;
         private List<Ram> pamiecRam;
@@ -25,9 +24,9 @@ namespace Plyta_Glowna
         }
 
         
-        public int IloscRam() //naprawić 
+        public int IloscRam()
         {
-            
+            int licznik = 0;
             foreach (var ram in pamiecRam)
             {
                 licznik += ram.Pojemnosc;
@@ -35,9 +34,17 @@ namespace Plyta_Glowna
 
             return licznik;
         }
-        public void Dodaj(Ram r) //zabezpieczyć 
+        public void Dodaj(Ram r)
         {
-            pamiecRam.Add(r);
+            if (IloscRam() + r.Pojemnosc <= maxRam)
+            {
+                pamiecRam.Add(r);
+            }
+            else
+            {
+                Console.WriteLine("NIE MOZNA DODAC NOWEJ KOSCI DO PLYTY, ERRORXDKTOUKLADAZADANIAO3WNOCYLOL");
+            }
+           
         }
 
         public void ZapisXML(string nazwaPliku)
@@ -60,7 +67,7 @@ namespace Plyta_Glowna
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine($"{producent}, {maxRam}, {licznik}");
+            builder.AppendLine($"{producent}, {IloscRam()}/{maxRam}");
             //builder.AppendLine($"");
             foreach (var ram in pamiecRam)
             {
