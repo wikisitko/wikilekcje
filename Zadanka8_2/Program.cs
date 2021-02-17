@@ -9,12 +9,12 @@ namespace Zadanka8_2
             Automat a = new Automat();
             a.Wrzuc(new Moneta());
             a.Wrzuc(new Moneta());
-            a.ZamowKawe("duza");
-            a.ZamowKawe("mala");
+            a.ZamowKawe(KawaWielkosc.Duza);
+            a.ZamowKawe(KawaWielkosc.Mala);
             a.Wrzuc(new Moneta());
             a.Wrzuc(new Moneta());
             a.Wrzuc(new Moneta());
-            a.ZamowKawe("duza");
+            a.ZamowKawe(KawaWielkosc.Duza);
             Console.WriteLine(a);
         }
     }

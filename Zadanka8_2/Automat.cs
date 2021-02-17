@@ -4,19 +4,17 @@ using System.Text;
 
 namespace Zadanka8_2
 {
+    enum KawaWielkosc { Mala, Duza }
     class Automat
     {
         private List<Moneta> monety;
+        int licznik = 0;
 
         public Automat()
         {
-        }
-        
-        public Automat(List<Moneta> monety)
-        {
-            this.monety = monety;
             Monety = new List<Moneta>();
         }
+       
 
         public List<Moneta> Monety { get => monety; set => monety = value; }
 
@@ -27,15 +25,20 @@ namespace Zadanka8_2
             Monety.Add(moneta);
         }
 
-        public void ZamowKawe(string wielkosc)
+        public void ZamowKawe(KawaWielkosc wielkoscKawy)
         {
-            if (monety.Count >= 2 && wielkosc == "mala")
+
+            if (monety.Count >= 2 && wielkoscKawy == KawaWielkosc.Mala)
             {
                 Console.WriteLine("Mała kawa kupiona");
+                monety.Clear();
+                licznik++;
             }
-            else if (monety.Count >= 3 && wielkosc == "duza")
+            else if (monety.Count >= 3 && wielkoscKawy == KawaWielkosc.Duza)
             {
                 Console.WriteLine("Duża kawa kupiona");
+                monety.Clear();
+                licznik++;
             }
             else
             {
@@ -43,12 +46,12 @@ namespace Zadanka8_2
             }
 
 
-            monety.Clear();
+           
         }
 
         public override string ToString()
         {
-            return $"Zamowiono x kaw";
+            return $"Zamowiono {licznik} kaw_ę_y";
         }
     }
 }
