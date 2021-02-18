@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Zadanka9_Polisa
 {
@@ -6,7 +7,15 @@ namespace Zadanka9_Polisa
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Polisa p = new Polisa(50, "platynowa", "34565", "Jan", "Kowalski", "10/03/1981", "609876432");
+
+            List<Polisa> pol = new List<Polisa>();
+            pol.Add(p);
+
+
+
+            
+
         }
     }
 }
