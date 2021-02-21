@@ -22,10 +22,10 @@ namespace Plyta_Glowna
             plyta.Dodaj(r3);
             Console.WriteLine(plyta);
 
-            //plyta.ZapisXML("plyta.xml");
-            //PlytaGlowna x = PlytaGlowna.OdczytXML("plyta.xml");
+            plyta.ZapisXML("plyta.xml");
+            PlytaGlowna x = PlytaGlowna.OdczytXML("plyta.xml");
 
-            //Console.WriteLine(x);
+            Console.WriteLine(x);
         }
     }
 }

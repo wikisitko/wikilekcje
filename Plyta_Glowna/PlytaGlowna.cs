@@ -6,17 +6,21 @@ using System.Xml.Serialization;
 
 namespace Plyta_Glowna
 {
-    class PlytaGlowna
+    public class PlytaGlowna
     {
         private string producent;
         private int maxRam;
         private List<Ram> pamiecRam;
 
+        public string Producent { get => producent; set => producent = value; }
+        public int MaxRam { get => maxRam; set => maxRam = value; }
+        public List<Ram> PamiecRam { get => pamiecRam; set => pamiecRam = value; }
+
         public PlytaGlowna(string producent, int maxRam)
         {
-            this.producent = producent;
-            this.maxRam = maxRam;
-            this.pamiecRam = new List<Ram>();
+            this.Producent = producent;
+            this.MaxRam = maxRam;
+            this.PamiecRam = new List<Ram>();
         }
 
         public PlytaGlowna()
@@ -27,7 +31,7 @@ namespace Plyta_Glowna
         public int IloscRam()
         {
             int licznik = 0;
-            foreach (var ram in pamiecRam)
+            foreach (var ram in PamiecRam)
             {
                 licznik += ram.Pojemnosc;
             }
@@ -36,9 +40,9 @@ namespace Plyta_Glowna
         }
         public void Dodaj(Ram r)
         {
-            if (IloscRam() + r.Pojemnosc <= maxRam)
+            if (IloscRam() + r.Pojemnosc <= MaxRam)
             {
-                pamiecRam.Add(r);
+                PamiecRam.Add(r);
             }
             else
             {
@@ -67,9 +71,9 @@ namespace Plyta_Glowna
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine($"{producent}, {IloscRam()}/{maxRam}");
+            builder.AppendLine($"{Producent}, {IloscRam()}/{MaxRam}");
             //builder.AppendLine($"");
-            foreach (var ram in pamiecRam)
+            foreach (var ram in PamiecRam)
             {
                 builder.AppendLine(ram.ToString());
             }

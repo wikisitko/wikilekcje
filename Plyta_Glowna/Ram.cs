@@ -4,11 +4,15 @@ using System.Text;
 
 namespace Plyta_Glowna
 {
-    class Ram
+    public class Ram
     {
         private string nazwa;
         private int pojemnosc;
 
+        public Ram()
+        {
+
+        }
         public Ram(string nazwa, int pojemnosc)
         {
             this.Nazwa = nazwa;

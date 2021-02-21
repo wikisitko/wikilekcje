@@ -7,14 +7,14 @@ namespace Zadanka9_Polisa
     {
         static void Main(string[] args)
         {
-            Polisa p = new Polisa(50, "platynowa", "34565", "Jan", "Kowalski", "10/03/1981", "609876432");
+            Polisa p = new Polisa(50, "platynowa50", "Ola", "Kowalska", "15/04/2015", "458412589", WariantPolisy.platynowa);
+            Console.WriteLine(p);
 
-            List<Polisa> pol = new List<Polisa>();
-            pol.Add(p);
+            Polisa p2 = new Polisa(70, "srebrna_X", "Ala", "Nowak", "10/06/1995", "254159658", WariantPolisy.srebrna);
+            Console.WriteLine(p2);
 
 
 
-            
 
         }
     }
