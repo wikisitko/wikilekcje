@@ -11,17 +11,11 @@ namespace Samochod_UPEL
         private DateTime dataRozpoczecia;
         private DateTime dataZakonczenia;
 
-        public PostojK(string dataRozpoczecia)
+        public PostojK(SamochodK samochod, string dataRozpoczecia)
         {
-            //this.zakonczenie = zakonczenie;
-            //this.samochod = 
+            zakonczenie = false;
+            this.samochod = samochod;
             this.dataRozpoczecia = DateTime.Parse(dataRozpoczecia);
-            //this.dataZakonczenia = dataZakonczenia;
-        }
-
-        public PostojK()
-        {
-            zakonczenie = false; 
         }
 
         public DateTime Zakoncz(PostojK postoj)
@@ -33,11 +27,19 @@ namespace Samochod_UPEL
         }
         public double ObliczOplate()
         {
-            double czas = dataZakonczenia.Hour - dataRozpoczecia.Hour;
+            double czas = (dataZakonczenia - dataRozpoczecia).TotalHours;
 
             //nie umiem wyciagnac polisy :(
+            if(samochod.Posiadacz.Polisa)
+            {
+                return czas * 10 * 0.9;
 
-            return czas * 10;
+            }
+            else
+            {
+                return czas * 10;
+            }
+            
         }
 
         public override string ToString() //brakuje

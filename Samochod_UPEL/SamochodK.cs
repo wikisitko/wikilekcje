@@ -4,30 +4,29 @@ using System.Text;
 
 namespace Samochod_UPEL
 {
+    public enum Marka { Opel, Volvo, Fiat, Suzuki, Toyota, Mercedes }
     public class SamochodK
     {
         private string id;
-        public enum Marka { Opel, Volvo, Fiat, Suzuki, Toyota, Mercedes }
+
+        private Marka markaSamochodu;
         private WlascicielK posiadacz;
-        private long licznik;
+        private static long licznik = 0;
 
         public string Id { get => id; set => id = value; }
+        public WlascicielK Posiadacz { get => posiadacz; set => posiadacz = value; }
 
-        public SamochodK()
-        {
-            licznik = 0;
-        }
-        public SamochodK(string id, WlascicielK posiadacz, long licznik)
+        public SamochodK(WlascicielK posiadacz, Marka markaSamochodu)
         {
             this.Id = $"CAR\\{licznik.ToString().PadLeft(5, '0')}";
-            this.posiadacz = posiadacz;
-            this.licznik = licznik;
+            this.Posiadacz = posiadacz;
             licznik++;
+            this.markaSamochodu = markaSamochodu;
         }
 
         public override string ToString()
         {
-            return $"{Id}: {posiadacz}"; //brakuje
+            return $"{Id}: {Posiadacz}, {markaSamochodu}";
         }
     }
 }

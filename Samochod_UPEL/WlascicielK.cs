@@ -15,7 +15,7 @@ namespace Samochod_UPEL
         {
             this.imie = imie;
             this.nazwisko = nazwisko;
-            if (telefon.Length == 9)
+            if (TelTools.PoprawnyTel(telefon))
             {
                 this.telefon = telefon;
             }
@@ -25,6 +25,8 @@ namespace Samochod_UPEL
             }
             this.Polisa = polisa;
         }
+
+
 
         public bool Polisa { get => polisa; set => polisa = value; }
 
