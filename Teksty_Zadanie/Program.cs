@@ -7,9 +7,22 @@ namespace Teksty_Zadanie
     {
         static void Main(string[] args)
         {
+            //Tekst t = new Tekst("Ada ma kota"); - juz nie dziala
+            Tekst x = new Ksiazka("Teresa Li", "Mlodosc", "Ala ma kota"); //ten dziala, mozna tak zapisac bo ksiazka dziedziczy po klasie Tekst
+            
             Ksiazka k1 = new Ksiazka("Teresa Li", "Mlodosc", "Ala ma kota");
             Ksiazka k2 = new Ksiazka("Adam Bo", "Starosc", "kot ma Ale");
-            //Ksiazka k3 = new Ksiazka("Adam Bo", "Mein Kampf", "kot ma Ale");
+            
+            try
+            {
+                Ksiazka k3 = new Ksiazka("Adam Bo", "Mein Kampf", "kot ma Ale");
+            }
+            catch(ZakazaneException z)
+            {
+                Console.WriteLine("Nie mozna stworzyc takiej ksiazki!");
+            }
+            
+
 
             Artykul a1 = new Artykul("10/01/1997", "Kaktus", "Rosliny sa zielone");
             Artykul a2 = new Artykul("04/06/2001", "Niebo", "Niebo jest niebieskie");

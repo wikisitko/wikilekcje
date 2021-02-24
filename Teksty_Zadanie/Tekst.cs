@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Teksty_Zadanie
 {
-    public class Tekst
+    //klasa abstrakcyjna - to taka klasa ktorej obiektu nie mozna stworzyc (czyli nie mozna napisac np new Tekst)
+    //Tekst t = new Ksiazka(...) -- to mozna (zmienna Tekst)
+    //Tekst t = new Tekst(..) -- tego nie mozna
+    //slowo abstract informuje o klasie abstrakcyjnej
+    public abstract class Tekst
     {
         protected int id;
         protected string tresc;
@@ -15,11 +19,6 @@ namespace Teksty_Zadanie
             licznik = 1;
         }
 
-        public Tekst()
-        {
-
-        }
-
         public Tekst(string tresc)
         {
             this.id = licznik;
@@ -27,10 +26,10 @@ namespace Teksty_Zadanie
             licznik++;
         }
 
-        public virtual double ObliczWartosc() //virtual - "nadpisz mnie", funkcje z klas pochodnych moga nadpisywac (override) ta funkcje
-        {
-            return 0;
-        }
+        //funkcja abstrakcyjna moze byc tylko w klasie abstrakcyjnej
+        public abstract double ObliczWartosc();
+
+        public abstract string TypTekstu();
 
         public override string ToString()
         {

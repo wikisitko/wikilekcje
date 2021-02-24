@@ -41,5 +41,10 @@ namespace Teksty_Zadanie
         {
             return base.ToString() + $"AUTOR: {autor}, TYTUŁ: {tytul}";
         }
+
+        public override string TypTekstu()
+        {
+            return "Ksiazka";
+        }
     }
 }

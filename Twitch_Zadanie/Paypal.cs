@@ -7,7 +7,7 @@ namespace Twitch_Zadanie
     public class Paypal : Donate
     {
         private string numerKonta;
-        public Paypal(int id, string nazwaUzytkownika, string tresc, double kwota, string data, string numerKonta) : base(id, nazwaUzytkownika, tresc, kwota, data)
+        public Paypal(string nazwaUzytkownika, string tresc, double kwota, string data, string numerKonta) : base(nazwaUzytkownika, tresc, kwota, data)
         {
             this.numerKonta = numerKonta;
         }

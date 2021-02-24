@@ -9,12 +9,12 @@ namespace Twitch_Zadanie
     {
         private Typ typ;
 
-        public Tipo(int id, string nazwaUzytkownika, string tresc, double kwota, string data, Typ typ) : base (id, nazwaUzytkownika, tresc, kwota, data)
+        public Tipo( string nazwaUzytkownika, string tresc, double kwota, string data, Typ typ) : base (nazwaUzytkownika, tresc, kwota, data)
         {
             this.Typ = typ;
         }
 
-        internal Typ Typ { get => typ; set => typ = value; }
+        public Typ Typ { get => typ; set => typ = value; }
         public override double KwotaNetto()
         {
             if (typ == Typ.głosowy)

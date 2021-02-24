@@ -35,5 +35,10 @@ namespace Teksty_Zadanie
         {
             return base.ToString() + $"NAZWA CZASOPISMA: {nazwaCzasopisma}, DATA WYDANIA: {dataWydania}";
         }
+
+        public override string TypTekstu()
+        {
+            return "Artykul";
+        }
     }
 }

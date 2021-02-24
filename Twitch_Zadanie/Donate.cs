@@ -22,8 +22,12 @@ namespace Twitch_Zadanie
             licznik = 0;
         }
 
-        public Donate(int id, string nazwaUzytkownika, string tresc, double kwota, string data)
+        public Donate(string nazwaUzytkownika, string tresc, double kwota, string data)
         {
+            if (Kwota < 0)
+            {
+                throw new NegativeValueException();
+            }
             this.id = licznik;
             this.nazwaUzytkownika = nazwaUzytkownika;
             this.Tresc = tresc;
@@ -39,6 +43,19 @@ namespace Twitch_Zadanie
         {
             return $"{id}, {nazwaUzytkownika}, {tresc}, {kwota}, {data.ToShortDateString()}, {licznik}";
     
+        }
+
+        public static double MaxKwota(List<Donate> donejty) //jak to zrobic zeby bylo poza main :(
+        {
+            double max = 0;
+            foreach (var don in donejty)
+            {
+                if (don.Kwota > max)
+                {
+                    max = don.Kwota;
+                }
+            }
+            return max;
         }
     }
 

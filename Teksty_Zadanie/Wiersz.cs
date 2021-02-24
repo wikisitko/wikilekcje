@@ -31,5 +31,10 @@ namespace Teksty_Zadanie
         {
             return base.ToString() + $"RODZAJ: {rodzaj}";
         }
+
+        public override string TypTekstu()
+        {
+            return "Wiersz";
+        }
     }
 }
