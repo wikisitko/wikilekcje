@@ -25,14 +25,7 @@ namespace Samolot_Zadanie
         {
             return 2000;
         }
-        public bool Alarm()
-        {
-            if (dopuszczalnaTemp() < temp())
-            {
-                return true;
-            }
-            return false;
-        }
+        
         public override string ToString()
         {
             return $"Aktualna moc: {aktualnaMoc}, aktualny czas pracy {aktualnyCzasPracy}";

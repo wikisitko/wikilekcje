@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Samolot_Zadanie
 {
-    public class APU
+    public class APU : ICzujnik
     {
         protected bool czyWlaczony;
 
@@ -29,14 +29,7 @@ namespace Samolot_Zadanie
         {
             return 80;
         }
-        public bool Alarm()
-        {
-            if (dopuszczalnaTemp() < temp())
-            {
-                return true;
-            }
-            return false;
-        }
+       
         public override string ToString()
         {
             return $"";

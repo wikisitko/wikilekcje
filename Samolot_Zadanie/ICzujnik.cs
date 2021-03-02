@@ -8,14 +8,14 @@ namespace Samolot_Zadanie
     {
         double dopuszczalnaTemp();
         double temp();
-        bool Alarm();
-        //{
-        //    if (dopuszczalnaTemp() < temp())
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        bool Alarm()
+        {
+            if (dopuszczalnaTemp() < temp())
+            {
+                return true;
+            }
+            return false;
+        }
 
-    }
+}
 }

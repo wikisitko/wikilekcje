@@ -41,14 +41,7 @@ namespace Samolot_Zadanie
         {
             return 25;
         }
-        public bool Alarm()
-        {
-            if (dopuszczalnaTemp() < temp())
-            {
-                return true;
-            }
-            return false;
-        }
+       
         public override string ToString()
         {
             return $"Data produkcji: {dataProdukcji}, ilość: {ilosc}";
