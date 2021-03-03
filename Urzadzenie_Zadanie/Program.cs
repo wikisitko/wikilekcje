@@ -21,9 +21,15 @@ namespace Urzadzenie_Zadanie
             urzadzeniaSkanujace.Add(uw1);
             urzadzeniaSkanujace.Add(s1);
 
-            d1.Drukuj();
-            //uw1.
+            foreach (var item in urzadzeniaDrukujace)
+            {
+                Console.WriteLine(item.Drukuj()); 
+            }
 
+            foreach (var item in urzadzeniaSkanujace)
+            {
+                Console.WriteLine(item.Skanuj());
+            }
         }
     }
 }

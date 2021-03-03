@@ -13,18 +13,23 @@ namespace Urzadzenie_Zadanie
         {
             this.rodzajPolaczenia = rodzajPolaczenia;
         }
+
+        //public int IloscTuszu => 100; //jest bedzie proba pobrania wartosci ze IloscTuszu to za kazdym razem dostaniemy wartosc 100
+        public int IloscTuszu { get => 100; }
+
         //public int iloscTuszu()
         //{
         //    return 100; //chwilowe rozwiazanie
         //}
-        public string Drukuj() //chcialabym zeby mi to tutaj pobieralo ilosc tuszu i jak zbyt malo to sie sypalo
-        {           
-               return $"Drukowanie...";         
+
+        public string DrukujMetoda()
+        {
+            return $"Wielofunkcyjna: Drukowanie...";
         }
 
         public string Skanuj()
         {
-            return $"Skanowanie...";
+            return $"Wielofunkcyjna: Skanowanie...";
         }
         public override string ToString()
         {

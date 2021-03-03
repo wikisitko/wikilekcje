@@ -22,7 +22,7 @@ namespace Urzadzenie_Zadanie
         }
         public string Skanuj()
         {
-            return $"Skanowanie...";
+            return $"Skaner: Skanowanie...";
         }
         public override string ToString()
         {
