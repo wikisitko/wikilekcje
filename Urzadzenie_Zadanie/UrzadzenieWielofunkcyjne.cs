@@ -13,9 +13,18 @@ namespace Urzadzenie_Zadanie
         {
             this.rodzajPolaczenia = rodzajPolaczenia;
         }
-        public int iloscTuszu()
+        //public int iloscTuszu()
+        //{
+        //    return 100; //chwilowe rozwiazanie
+        //}
+        public string Drukuj() //chcialabym zeby mi to tutaj pobieralo ilosc tuszu i jak zbyt malo to sie sypalo
+        {           
+               return $"Drukowanie...";         
+        }
+
+        public string Skanuj()
         {
-            return 100; //chwilowe rozwiazanie
+            return $"Skanowanie...";
         }
         public override string ToString()
         {

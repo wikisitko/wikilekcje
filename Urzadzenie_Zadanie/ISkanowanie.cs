@@ -6,9 +6,9 @@ namespace Urzadzenie_Zadanie
 {
     public interface ISkanowanie
     {
-        string Skanuj()
-        {
-            return $"Skanowanie...";
-        }
+        string Skanuj();
+        //{
+        //    return $"Skanowanie...";
+        //}
     }
 }

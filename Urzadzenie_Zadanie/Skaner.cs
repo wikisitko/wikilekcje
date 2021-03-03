@@ -20,6 +20,10 @@ namespace Urzadzenie_Zadanie
             }
             
         }
+        public string Skanuj()
+        {
+            return $"Skanowanie...";
+        }
         public override string ToString()
         {
             return base.ToString() + $"Szybkosc skanowania: {szybkoscSkanowania}";
