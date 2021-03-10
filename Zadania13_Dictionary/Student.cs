@@ -9,15 +9,17 @@ namespace Zadania13_Dictionary
     {
         protected string imie;
         protected string nazwisko;
+        private Dictionary<EgzaminTyp, int> wyniki;
         //private EgzaminTyp TypEgzaminu;
 
         public Student(string imie, string nazwisko)
         {
             this.imie = imie;
             this.nazwisko = nazwisko;
+            wyniki = new Dictionary<EgzaminTyp, int>();
         }
 
-        Dictionary<EgzaminTyp, int> wyniki = new Dictionary<EgzaminTyp, int>();
+        
 
         //public Dictionary<EgzaminTyp, int> Wyniki { get => wyniki; set => wyniki = value; }
         public void DodajWynik(EgzaminTyp Exam, int ocena)
@@ -27,10 +29,10 @@ namespace Zadania13_Dictionary
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append($"");
+            builder.AppendLine($"Imie: {imie}, nazwisko: {nazwisko}");
             foreach (var item in wyniki)
             {
-                builder.Append($"Imie: {imie}, nazwisko: {nazwisko}, wyniki: {wyniki}");
+                builder.AppendLine($"{item.Key}: {item.Value}");
             }
             return builder.ToString();
         }
