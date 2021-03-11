@@ -1,5 +1,6 @@
 ﻿namespace DaneZNeta_Lekcja
 {
+    //klasa która jest modelem - tylko trzyma dane
     public class Gra
     {
         private string _title;

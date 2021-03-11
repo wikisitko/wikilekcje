@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FunkcjeRozszerzajaceNullable_Lekcja
 {
-    //nie mozna stworzyc obiektu tej klasy ani dziedziczyc ale mozna w nia wsadzic zmienne i metody statyczne
+    //slowo static oznacza ze nie mozna stworzyc obiektu tej klasy ani dziedziczyc ale mozna w nia wsadzic zmienne i metody statyczne
     static class RandExtension
     {
         //metoda rozszerzajaca musi byc w klasie poprzedzonej slowem static
