@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FunkcjeRozszerzajaceNullable_Lekcja
 {
+
     static class ListExtension
     {
         public static void Show(this List<int> lista)

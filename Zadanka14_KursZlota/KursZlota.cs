@@ -6,12 +6,15 @@ namespace Zadanka14_KursZlota
 {
     class KursZlota
     {
-        private DateTime data;
-        private double wartosc;
+        private DateTime _data;
+        private double _cena;
+
+        public DateTime data { get => _data; set => _data = value; }
+        public double cena { get => _cena; set => _cena = value; }
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{data} {cena}";
         }
     }
 }

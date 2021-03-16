@@ -1,29 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text;
 using System.Text.Json;
 
 namespace Zadanka14_KursZlota
 {
-    class Kursy
+    class Kursy : //IComparable<Kursy>
     {
-        protected List<Dictionary<DateTime, double>> lista;
-        protected string adres;
+        private List<KursZlota> lista;
+        private string adres;
 
-        public Kursy(string adres)
+        public Kursy(string adres) 
         {
-            lista = new List<Dictionary<DateTime, double>>();
-            lista = JsonSerializer.Deserialize<List<Dictionary<DateTime, double>>>(adres);
-            if (lista == null)
+            WebClient client = new WebClient();
+            string strona = client.DownloadString(adres);
+            lista = JsonSerializer.Deserialize<List<KursZlota>>(strona);
+            if (lista == null || lista.Count == 0)
             {
                 throw new NoResultsException();
             }
-            else
-            {
-                this.adres = adres;
-            }
 
+            this.adres = adres;
+
+        }
+
+       
+
+        public List<KursZlota> SortujCena()
+        {
+            lista.Sort();
+            lista.Reverse();
+            return lista;
         }
 
         public override string ToString() //powinien zapisywac do stringa zawartość listy kursów
@@ -49,5 +58,15 @@ namespace Zadanka14_KursZlota
             
             return base.ToString();
         }
+
+        //public double? Szukaj(DateTime data)
+        //{
+        //    return null;
+        //}
+
+        //public List<KursZlota> TanszeNiz(double? cena)
+        //{
+
+        //}
     }
 }
