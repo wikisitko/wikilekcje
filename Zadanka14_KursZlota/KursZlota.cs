@@ -4,17 +4,17 @@ using System.Text;
 
 namespace Zadanka14_KursZlota
 {
-    class KursZlota
+    public class KursZlota
     {
         private DateTime _data;
         private double _cena;
 
-        public DateTime data { get => _data; set => _data = value; }
-        public double cena { get => _cena; set => _cena = value; }
+        public DateTime Data { get => _data; set => _data = value; }
+        public double Cena { get => _cena; set => _cena = value; }
 
         public override string ToString()
         {
-            return $"{data} {cena}";
+            return $"{Data} {Cena}";
         }
     }
 }

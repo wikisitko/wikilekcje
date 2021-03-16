@@ -7,12 +7,26 @@ using System.Text.Json;
 
 namespace Zadanka14_KursZlota
 {
-    class Kursy : //IComparable<Kursy>
+    class SortujCena : IComparer<KursZlota>
+    {
+        public int Compare(KursZlota x, KursZlota y)
+        {
+            return x.Cena.CompareTo(y.Cena);
+        }
+    }
+    class SortujData : IComparer<KursZlota>
+    {
+        public int Compare(KursZlota x, KursZlota y)
+        {
+            return x.Data.CompareTo(y.Data);
+        }
+    }
+    public class Kursy
     {
         private List<KursZlota> lista;
         private string adres;
 
-        public Kursy(string adres) 
+        public Kursy(string adres)
         {
             WebClient client = new WebClient();
             string strona = client.DownloadString(adres);
@@ -21,52 +35,18 @@ namespace Zadanka14_KursZlota
             {
                 throw new NoResultsException();
             }
-
             this.adres = adres;
-
         }
-
-       
-
-        public List<KursZlota> SortujCena()
+        public double? Szukaj(DateTime data)
         {
-            lista.Sort();
-            lista.Reverse();
-            return lista;
+            if (data == Data) //nie umiem się dostać do tych danych z klasy KursZlota
+            {
+                return Cena;
+            }
+            else
+            {
+                return null;
+            }
         }
-
-        public override string ToString() //powinien zapisywac do stringa zawartość listy kursów
-        {
-            StringBuilder builder = new StringBuilder();
-            //foreach (var kurs in lista)
-            //{
-            //    foreach (var item in )
-            //    {
-
-            //    }
-
-            //}
-            
-            //for (int i = 0; i < lista.Count; i++)
-            //{
-            //    foreach (var item in collection)
-            //    {
-
-            //    }
-            //    builder.AppendLine(lista[i]);
-            //}
-            
-            return base.ToString();
-        }
-
-        //public double? Szukaj(DateTime data)
-        //{
-        //    return null;
-        //}
-
-        //public List<KursZlota> TanszeNiz(double? cena)
-        //{
-
-        //}
     }
 }
