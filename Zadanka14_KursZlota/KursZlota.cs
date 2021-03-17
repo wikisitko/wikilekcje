@@ -9,12 +9,12 @@ namespace Zadanka14_KursZlota
         private DateTime _data;
         private double _cena;
 
-        public DateTime Data { get => _data; set => _data = value; }
-        public double Cena { get => _cena; set => _cena = value; }
+        public DateTime data { get => _data; set => _data = value; }
+        public double cena { get => _cena; set => _cena = value; }
 
         public override string ToString()
         {
-            return $"{Data} {Cena}";
+            return $"{data} {cena}";
         }
     }
 }

@@ -7,18 +7,18 @@ using System.Text.Json;
 
 namespace Zadanka14_KursZlota
 {
-    class SortujCena : IComparer<KursZlota>
+    class CenaComparer : IComparer<KursZlota>
     {
         public int Compare(KursZlota x, KursZlota y)
         {
-            return x.Cena.CompareTo(y.Cena);
+            return x.cena.CompareTo(y.cena);
         }
     }
-    class SortujData : IComparer<KursZlota>
+    class DataComparer : IComparer<KursZlota>
     {
         public int Compare(KursZlota x, KursZlota y)
         {
-            return x.Data.CompareTo(y.Data);
+            return x.data.CompareTo(y.data);
         }
     }
     public class Kursy
@@ -37,16 +37,57 @@ namespace Zadanka14_KursZlota
             }
             this.adres = adres;
         }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("Adres: ").AppendLine(adres);
+            foreach (var item in lista)
+            {
+                builder.AppendLine(item.ToString());
+            }
+            return builder.ToString();
+        }
+
+        public void SortujCena()
+        {
+            lista.Sort(new CenaComparer());
+        }
+
+        public void SortujData()
+        {
+            lista.Sort(new DataComparer());
+        }
+
         public double? Szukaj(DateTime data)
         {
-            if (data == Data) //nie umiem się dostać do tych danych z klasy KursZlota
+            foreach (var item in lista)
             {
-                return Cena;
+                if(item.data == data)
+                {
+                    return item.cena;
+                }
             }
-            else
+
+            return null;
+        }
+
+        public List<KursZlota> TanszeNiz(int? cena)
+        {
+            if(cena == null)
             {
-                return null;
+                return lista;
             }
+
+            List<KursZlota> wynik = new List<KursZlota>();
+            foreach (var item in lista)
+            {
+                if (item.cena < cena)
+                {
+                    wynik.Add(item);
+                }
+            }
+            return wynik;
         }
     }
 }
