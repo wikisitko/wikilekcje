@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Zadanka15_Linq
 {
     class Program
     {   
-        static void PodajLiczby()
-        {
-            List<int> liczby = new List<int>();
-            Console.WriteLine("Podaj 10 liczb całkowitych: ");
-
-            string input = Console.ReadLine();
-            
-            for (int i = 0; i < liczby.Count; i++)
-            {
-                liczby[i] = input[i];
-            }
-        }
         static void Main(string[] args)
         {
             List<int> liczby = new List<int>();
@@ -29,10 +18,32 @@ namespace Zadanka15_Linq
                 i++;
             }
             Console.WriteLine();
-            foreach (var item in liczby)
+            //foreach (var item in liczby)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            //Ilosc liczb ktore naleza do przedzialu 1-10
+            int ile = liczby.Count(x => x >= 1 && x <= 10);
+            Console.WriteLine(ile);
+
+            //Parzyste
+            List<int> parzyste = liczby.FindAll(x => x % 2 == 0);
+
+            //Dodatnie
+            if(liczby.All(x => x > 10))
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Wszystkie dodatnie");
             }
+            else
+            {
+                Console.WriteLine("Nie wszystkie dodatnie");
+            }
+            //Mniejsza niz -10
+            Console.WriteLine(liczby.Any(x => x < -10)); 
+            
+
 
 
         }
