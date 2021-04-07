@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
+using System.Collections;
+using System.Globalization;
 
 namespace Zadanka16_KartaPlatnicza
 {
     class Transakcja
     {
-        private List<Info> lista;
+        private List<Info> listaTypow = new List<Info>();
 
-        public Transakcja()
+        public Transakcja(string path)
         {
-            var lines = File.ReadAllLines(@"..\..\..\dane.csv");
+            var lines = File.ReadAllLines(path);
 
-            foreach (var line in lines)
+            foreach (var line in lines.Skip(1)) //Skip odrzuca jeden element poczatkowy z tablicy
             {
                 var values = line.Split(",");
 
-                Info info = new Info(double.Parse(values[2]), values[10], values[13]);
+                Info info = new Info(double.Parse(values[2], CultureInfo.InvariantCulture), values[10], values[13]);
+
+                listaTypow.Add(info);
+
             }
 
             ////filename: @"..\..\..\dane.csv"
@@ -32,17 +38,39 @@ namespace Zadanka16_KartaPlatnicza
         }
 
         //METODY DO ZROBIENIA
-        public void AlkoSuma() 
+        public double AlkoSuma() 
         {
+            //double suma = 0;
 
+            //foreach (var item in listaTypow)
+            //{
+            //    if(item.Category == "Liquor")
+            //    {
+            //        suma += item.DataValue;
+            //    }
+            //}
+            //return suma;
+            return listaTypow.FindAll(x => x.Category == "Liquor").Sum(x => x.DataValue);
         }
-        public string Filtruj(string kategoria)
+        public List<Info> Filtruj(string kategoria)
         {
-            return "0";
+            return listaTypow.FindAll(x => x.Category == kategoria);
         }
-        public double MaxTransakcja()
+        public Info MaxTransakcja()
         {
-            return 0;
+            //Info max = listaTypow[0];
+            //for (int i = 1; i < listaTypow.Count; i++)
+            //{
+            //    if(listaTypow[i].DataValue > max.DataValue)
+            //    {
+            //        max = listaTypow[i];
+            //    }
+            //}
+            //return max;
+            //listaTypow.Sort(new InfoComparer());
+            //return listaTypow[0];
+
+            return listaTypow.Max();
         }
     }
 }

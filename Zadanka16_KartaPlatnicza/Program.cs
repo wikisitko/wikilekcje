@@ -21,15 +21,16 @@ namespace Zadanka16_KartaPlatnicza
             //}
 
             //dane.Pokaz();
-            //List<Transakcja> lista = new List<Transakcja>();
-            var lines = File.ReadAllLines(@"..\..\..\dane.csv");
 
-            foreach (var line in lines)
-            {
-                var values = line.Split(",");
 
-                Info info = new Info(double.Parse(values[2]), values[10], values[13]);
-            }
+            //@"..\..\..\dane.csv"
+
+            Transakcja t = new Transakcja(@"..\..\..\dane.csv");
+            Console.WriteLine(t.AlkoSuma());
+            Console.WriteLine();
+            t.Filtruj("Liquor").ForEach(x => Console.WriteLine(x));
+            Console.WriteLine();
+            Console.WriteLine(t.MaxTransakcja());
         }
     }
 }

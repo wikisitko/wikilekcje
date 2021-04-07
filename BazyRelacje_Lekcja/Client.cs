@@ -12,6 +12,6 @@ namespace BazyRelacje_Lekcja
         public string Code { get; set; }
         public string Firstname { get; set; }
         public string Surname { get; set; }
-        //public virtual ICollection<Complaint> Complaints { get; set; }
+        public List<Complaint> Complaints { get; set; }
     }
 }

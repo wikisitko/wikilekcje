@@ -37,5 +37,10 @@ namespace BazyRelacje_Lekcja
                 context.Complaints.Add(complaint);
                 context.SaveChanges();
         }
+
+        public void Save()
+        {
+            context.SaveChanges();
+        }
     }
 }
