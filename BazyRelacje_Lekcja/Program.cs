@@ -14,7 +14,7 @@ namespace BazyRelacje_Lekcja
                 Surname = "Kowalski"
             });*/
             data.GetAllClients().ForEach(x => Console.WriteLine($"{x.ClientId} {x.Firstname}"));
-            // data.GetAllComplaints().ForEach(x => Console.WriteLine($"{x.Text} {x.Client.Firstname}"));
+            data.GetAllComplaints().ForEach(x => Console.WriteLine($"{x.Text} {x.Client.Firstname}"));
 
             var clients = data.GetAllClients();
             Complaint complaint = new Complaint

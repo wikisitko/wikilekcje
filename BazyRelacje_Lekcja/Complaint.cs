@@ -10,6 +10,6 @@ namespace BazyRelacje_Lekcja
         [Key]
         public int ComplaintId { get; set; }
         public string Text { get; set; }
-        public virtual Client Client { get; set; }
+        public Client Client { get; set; }
     }
 }
