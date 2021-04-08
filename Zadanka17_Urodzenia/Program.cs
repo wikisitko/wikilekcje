@@ -11,28 +11,29 @@ namespace Zadanka17_Urodzenia
         {
             string filename = @"..\..\..\dane17.csv";
             var lines = File.ReadAllLines(filename);
-            List<string> lista = new List<string>();
-            foreach (var line in lines)
+            List<BirthInfo> lista = new List<BirthInfo>();
+            
+            foreach (var line in lines.Skip(1))
             {
                 var value = line.Split(",");
-                //dodanie do listy
+                BirthInfo birthInfo = new BirthInfo(Int32.Parse(value[0]), value[1], Int32.Parse(value[2]));
+                lista.Add(birthInfo);
 
-                //wyświetlić w których latach ilość urodzeń była większa niż 11000 w grupie wiekowej 35 - 39                
-                if (Int32.Parse(value[2]) > 11000 && value[1] == "35-39")
-                {
-                    Console.WriteLine($"{value[0]}, {value[1]}, {value[2]}");
-                }
-
-
-                //policzyć w ilu latach ilość urodzeń w grupie wiekowej poniżej 15 lat wyniosła więcej niż 25
-                int suma = 0;
-                if (Int32.Parse(value[3]) > 25 && value[1] == "Under 15")
-                {
-                    suma++;
-                }
-                Console.WriteLine(suma);
+                
             }
 
+            //wyświetlić w których latach ilość urodzeń była większa niż 11000 w grupie wiekowej 35 - 39  
+            lista.FindAll(x => x.Count > 11000 && x.MothersAge == "35-39").ForEach(x => Console.WriteLine(x));
+           
+            //policzyć w ilu latach ilość urodzeń w grupie wiekowej poniżej 15 lat wyniosła więcej niż 25
+            Console.WriteLine(lista.Count(x => x.MothersAge == "Under 15" && x.Count > 25));
+
+            //Sprawdzić czy w latach 2005 do 2013 była jakakolwiek grupa wiekowa, której ilość urodzeń wynosiła mniej niż 20
+            Console.WriteLine(lista.Any(x => x.Period > 2005 && x.Period < 2013 && x.Count < 20));
+
+            //Podać grupę wiekową i rok gdzie wskaźnik urodzeń (Count) był najmniejszy i największy(zastosuj Sort + IComparer)
+            Console.WriteLine(lista.Max());
+            Console.WriteLine(lista.Min());
         }
     }
 }
