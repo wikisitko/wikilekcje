@@ -22,8 +22,10 @@ namespace Zadanka17_Urodzenia
                 
             }
 
+            lista.RemoveAll(x => x.MothersAge == "Total");
+
             //wyświetlić w których latach ilość urodzeń była większa niż 11000 w grupie wiekowej 35 - 39  
-            lista.FindAll(x => x.Count > 11000 && x.MothersAge == "35-39").ForEach(x => Console.WriteLine(x));
+            lista.FindAll(x => x.Count > 11000 && x.MothersAge.StartsWith("35") && x.MothersAge.EndsWith("39")).ForEach(x => Console.WriteLine(x));
            
             //policzyć w ilu latach ilość urodzeń w grupie wiekowej poniżej 15 lat wyniosła więcej niż 25
             Console.WriteLine(lista.Count(x => x.MothersAge == "Under 15" && x.Count > 25));
