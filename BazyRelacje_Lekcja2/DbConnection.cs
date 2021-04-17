@@ -72,7 +72,7 @@ namespace BazyRelacje_Lekcja2
             }
 
             //sprawdzamy czy ta osoba nie oddala juz like
-            if (db.Likes.Where(x => x.User.Id == liker.Id && x.Post.Id == post.Id).First() != null)
+            if (db.Likes.Where(x => x.User.Id == liker.Id && x.Post.Id == post.Id).Count() != 0)
             {
                 return false; //funkcja zwraca czy udalo sie dodac like do bazy (w tym przypadku nie)
             }

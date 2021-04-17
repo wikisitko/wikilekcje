@@ -52,7 +52,7 @@ namespace BazyRelacje_Lekcja2
                     db.AddPost(user, text);
                     Console.WriteLine("Wybierz co chcesz polajkowac Id: ");
                     int id = int.Parse(Console.ReadLine());
-                    if(db.AddLike(user, new Post { Id = id }))
+                    if (db.AddLike(user, db.GetAllPosts().Where(x => x.Id == id).First()))
                     {
                         Console.WriteLine("OK");
                     }
