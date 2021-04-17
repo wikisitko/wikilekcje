@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Teksty_Zadanie
 {
-    class Artykul : Tekst
+    public class Artykul : Tekst
     {
         private DateTime dataWydania;
         private string nazwaCzasopisma;

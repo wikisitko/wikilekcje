@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,12 +34,14 @@ namespace BazyRelacje_Lekcja2
 
         public User LogIn(string login, string password)
         {
-            return db.Users.ToList().Find(x => x.Login == login && x.Password == password);
+            return db.Users.Include(x => x.Likes).Include(x => x.Posts).ToList().Find(x => x.Login == login && x.Password == password);
         }
 
         public List<Post> GetAllPosts()
         {
-            return db.Posts.ToList();
+            //Include - przy ladowaniu postow laduje tez elementy z innych tabel (np dane o userze czy lajkach)
+            //jesli dane z naszej tabeli odnosza sie do innej tabeli do musimy uzyc polecenia include i dodac te inne tabele
+            return db.Posts.Include(x => x.Owner).Include(x => x.Likes).ToList();
         }
 
         public bool AddPost(User user, string text)

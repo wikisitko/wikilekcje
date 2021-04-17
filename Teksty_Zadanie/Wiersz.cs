@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Teksty_Zadanie
 {
-    enum Rodzaj { Stroficzny, Stychiczny, Bialy, Sylabiczny }
-    class Wiersz : Tekst
+    public enum Rodzaj { Stroficzny, Stychiczny, Bialy, Sylabiczny }
+    public class Wiersz : Tekst
     {
         private Rodzaj rodzaj;
         public Wiersz(string tresc, Rodzaj rodzaj) : base(tresc)

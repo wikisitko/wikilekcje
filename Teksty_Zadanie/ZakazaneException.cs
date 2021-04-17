@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Teksty_Zadanie
 {
-    class ZakazaneException : Exception
+    public class ZakazaneException : Exception
     {
         public ZakazaneException() : base("Ta nazwa jest zakazana")
         { 
