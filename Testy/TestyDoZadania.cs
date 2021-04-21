@@ -34,5 +34,11 @@ namespace Testy
             Ksiazka ksiazka = new Ksiazka("Stephen Prata", "Testowy tytul", tresc);
             Assert.Equal(tresc.Length * 0.7, ksiazka.ObliczWartosc());
         }
+
+        [Fact]
+        public void ZakazaneException()
+        {
+            Assert.Throws<ZakazaneException>(() => new Ksiazka("Adolf Hitler", "xxxx", "gehen"));
+        }
     }
 }
