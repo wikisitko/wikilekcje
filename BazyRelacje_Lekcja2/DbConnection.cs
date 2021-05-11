@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BazyRelacje_Lekcja2
 {
-    class DbConnection
+    public class DbConnection
     {
         private DB db;
 

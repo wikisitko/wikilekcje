@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazyRelacje_Lekcja2", "BazyRelacje_Lekcja2.csproj", "{AEC8918C-2F4D-4D56-ADC3-34298E5D0FC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BazyRelacje_Lekcja2", "BazyRelacje_Lekcja2.csproj", "{AEC8918C-2F4D-4D56-ADC3-34298E5D0FC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazyRelacje2Testy", "..\BazyRelacje2Testy\BazyRelacje2Testy.csproj", "{082BA064-3AA3-44E4-9821-6AC90E344F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AEC8918C-2F4D-4D56-ADC3-34298E5D0FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC8918C-2F4D-4D56-ADC3-34298E5D0FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC8918C-2F4D-4D56-ADC3-34298E5D0FC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{082BA064-3AA3-44E4-9821-6AC90E344F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{082BA064-3AA3-44E4-9821-6AC90E344F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{082BA064-3AA3-44E4-9821-6AC90E344F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{082BA064-3AA3-44E4-9821-6AC90E344F94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

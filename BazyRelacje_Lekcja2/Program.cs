@@ -44,15 +44,15 @@ namespace BazyRelacje_Lekcja2
                 }
                 else
                 {
-                    Console.WriteLine("Witaj: " + user.Email);
+                    Console.WriteLine(value: "Witaj: " + user.Email);
                     Console.WriteLine("Twoj wall:");
                     db.GetAllPosts().ForEach(x => Console.WriteLine($"({x.Id}) [{x.Owner.Login}] {x.Text}, data dodania: {x.Date} lajki: {x.Likes.Select(x => x.User.Login).ElementsToString()}"));
                     Console.WriteLine("Dodaj posta:");
                     string text = Console.ReadLine();
-                    db.AddPost(user, text);
+                    db.AddPost(user: user, text: text);
                     Console.WriteLine("Wybierz co chcesz polajkowac Id: ");
                     int id = int.Parse(Console.ReadLine());
-                    if (db.AddLike(user, db.GetAllPosts().Where(x => x.Id == id).First()))
+                    if (db.AddLike(liker: user, post: db.GetAllPosts().Where(x => x.Id == id).First()))
                     {
                         Console.WriteLine("OK");
                     }
