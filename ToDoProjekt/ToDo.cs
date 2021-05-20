@@ -30,10 +30,27 @@ namespace ToDoProjekt
         {
             return baza.Zadania.ToList();            
         }
-        public void UsunZadanie(Zadanie doUsuniecia)
+        public void UsunZadanie(int number)
         {
-            baza.Zadania.Remove(doUsuniecia);
-            //baza.SaveChanges();
+            foreach (var zadanie in baza.Zadania)
+            {
+                if (zadanie.Id == number)
+                {
+                    baza.Zadania.Remove(zadanie);
+                }
+            }
+            baza.SaveChanges();
+        }
+        public void OznaczJakoWykonane(int number)
+        {
+            foreach (var zadanie in baza.Zadania)
+            {
+                if (zadanie.Id == number)
+                {
+                    zadanie.CzyZrobione = true;
+                }
+            }
+            baza.SaveChanges();
         }
         public List<Zadanie> OdfiltrujNiewykonane()
         {

@@ -42,7 +42,7 @@ namespace ToDoProjekt
                 "2. USUŃ ZADANIE \n" +
                 "3. OZNACZ ZADANIE JAKO WYKONANE \n" +
                 "4. ODFILTRUJ ELEMENTY KTÓRE NIE ZOSTAŁY WYKONANE \n" +
-                "5. ODFILTRUJ ELEMENTY KATEGORII 'WAZNE'");
+                "5. ODFILTRUJ ELEMENTY KATEGORII");
         }
         public void WykonajOpcje(int wybranaOpcja)
         {
@@ -57,19 +57,19 @@ namespace ToDoProjekt
                     break;
 
                 case 2:
-
+                    UsunZadanieMenu();
                     break;
 
                 case 3:
-
+                    OznaczJakoWykonaneMenu();
                     break;
 
                 case 4:
-
+                    OdfiltrujNiewykonaneMenu();
                     break;
 
                 case 5:
-
+                    OdfiltrujKategorieMenu();
                     break;
 
                 default:
@@ -79,12 +79,40 @@ namespace ToDoProjekt
             }
         }
 
+        private void OdfiltrujKategorieMenu()
+        {
+            Console.WriteLine("Jaką kategorię chcesz zobaczyć?");
+            string kategoria = Console.ReadLine();
+            Kategoria kat = (Kategoria)Enum.Parse(typeof(Kategoria), kategoria, true);
+            todo.OdfiltrujKategorie(kat);
+        }
+
+        private void OdfiltrujNiewykonaneMenu()
+        {
+            Console.WriteLine("Niewykonane zadania: ");
+            todo.OdfiltrujNiewykonane();
+        }
+
+        private void OznaczJakoWykonaneMenu()
+        {
+            Console.WriteLine("Podaj numer zadania: ");
+            int numer = Int32.Parse(Console.ReadLine());
+            todo.OznaczJakoWykonane(numer);
+        }
+
+        private void UsunZadanieMenu()
+        {
+            Console.WriteLine("Podaj numer zadania: ");
+            int numer = Int32.Parse(Console.ReadLine());
+            todo.UsunZadanie(numer);
+        }
+
         private void DodajZadanieMenu()
         {
             Console.WriteLine("Dodaj opis: ");
             string opis = Console.ReadLine();
 
-            Console.WriteLine("Podaj datę wykonania: ");
+            Console.Write("Podaj datę wykonania: ");
             DateTime data = DateTime.Parse(Console.ReadLine());
 
             Console.WriteLine("Podaj kategorie: (Dom/Szkola/Praca/Wazne/NaPozniej/Zakupy)");

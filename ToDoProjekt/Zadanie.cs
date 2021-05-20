@@ -9,7 +9,7 @@ namespace ToDoProjekt
         public int Id { get; set; }
         public string Opis { get; set; }
         public DateTime Termin { get; set; }
-        public Kategoria Kategoria { get; set; } //musimy zrobic enum
+        public Kategoria Kategoria { get; set; }
         public bool CzyZrobione { get; set; }
 
         public override string ToString()
