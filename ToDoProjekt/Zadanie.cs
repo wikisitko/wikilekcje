@@ -4,12 +4,12 @@ using System.Text;
 
 namespace ToDoProjekt
 {
-    class Zadanie
+    public class Zadanie
     {
         public int Id { get; set; }
         public string Opis { get; set; }
         public DateTime Termin { get; set; }
-        public string Kategoria { get; set; }
+        public Kategoria Kategoria { get; set; } //musimy zrobic enum
         public bool CzyZrobione { get; set; }
 
         public override string ToString()
