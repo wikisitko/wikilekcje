@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoProjekt;
 
 namespace ToDoProjekt.Migrations
 {
     [DbContext(typeof(Baza))]
-    partial class BazaModelSnapshot : ModelSnapshot
+    [Migration("20210602194350_dodanie tabeli user")]
+    partial class dodanietabeliuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

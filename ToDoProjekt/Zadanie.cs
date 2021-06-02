@@ -11,6 +11,7 @@ namespace ToDoProjekt
         public DateTime Termin { get; set; }
         public Kategoria Kategoria { get; set; }
         public bool CzyZrobione { get; set; }
+        public User User { get; set; }
 
         public override string ToString()
         {

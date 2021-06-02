@@ -42,7 +42,8 @@ namespace ToDoProjekt
                 "2. USUŃ ZADANIE \n" +
                 "3. OZNACZ ZADANIE JAKO WYKONANE \n" +
                 "4. ODFILTRUJ ELEMENTY KTÓRE NIE ZOSTAŁY WYKONANE \n" +
-                "5. ODFILTRUJ ELEMENTY KATEGORII");
+                "5. ODFILTRUJ ELEMENTY KATEGORII \n" +
+                "6. POKAŻ PRZETERMINOWANE");
         }
         public void WykonajOpcje(int wybranaOpcja)
         {
@@ -72,6 +73,10 @@ namespace ToDoProjekt
                     OdfiltrujKategorieMenu();
                     break;
 
+                case 6:
+                    PokazPrzeterminowane();
+                    break;
+
                 default:
                     Console.WriteLine("Przykro nam, taka opcja nie jest dostępna.");
                     //tutaj można dodać "spróbuj wybrać ponownie i wrzucić program w pętlę while
@@ -79,18 +84,38 @@ namespace ToDoProjekt
             }
         }
 
+        private void PokazPrzeterminowane()
+        {
+            Console.WriteLine("Przeterminowane zadania: ");
+            foreach (var zadanie in todo.PrzeterminowaneZadania())
+            {
+            
+                Console.WriteLine($"Termin zadania {zadanie.Id}. {zadanie.Opis} minął {zadanie.Termin.ToShortDateString()}. Uplynelo: {(DateTime.Now - zadanie.Termin).Days} dni");
+            
+            }
+
+        }
+
         private void OdfiltrujKategorieMenu()
         {
             Console.WriteLine("Jaką kategorię chcesz zobaczyć?");
             string kategoria = Console.ReadLine();
             Kategoria kat = (Kategoria)Enum.Parse(typeof(Kategoria), kategoria, true);
-            todo.OdfiltrujKategorie(kat);
+            List<Zadanie> KategoriaList = todo.OdfiltrujKategorie(kat);
+            foreach (var item in KategoriaList)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private void OdfiltrujNiewykonaneMenu()
         {
             Console.WriteLine("Niewykonane zadania: ");
-            todo.OdfiltrujNiewykonane();
+            List<Zadanie> Niewykonane = todo.OdfiltrujNiewykonane();
+            foreach (var item in Niewykonane)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private void OznaczJakoWykonaneMenu()

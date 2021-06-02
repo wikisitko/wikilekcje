@@ -13,8 +13,13 @@ namespace ToDoProjekt
         {
             baza = new Baza();
         }
+
+        public ToDo(Baza baza)
+        {
+            this.baza = baza;
+        }
         
-        public void DodajZadanie(string opis, DateTime termin, Kategoria kategoria)
+        public void DodajZadanie(string opis, DateTime termin, Kategoria kategoria, bool save = true)
         {
             Zadanie zadanie1 = new Zadanie()
             {
@@ -24,13 +29,16 @@ namespace ToDoProjekt
                 CzyZrobione = false
             };
             baza.Zadania.Add(zadanie1);
-            baza.SaveChanges();
+            if(save)
+            {
+                baza.SaveChanges();
+            }
         }
         public List<Zadanie> PobierzListeZadan()
         {
             return baza.Zadania.ToList();            
         }
-        public void UsunZadanie(int number)
+        public void UsunZadanie(int number, bool save = true)
         {
             foreach (var zadanie in baza.Zadania)
             {
@@ -39,9 +47,12 @@ namespace ToDoProjekt
                     baza.Zadania.Remove(zadanie);
                 }
             }
-            baza.SaveChanges();
+            if (save)
+            {
+                baza.SaveChanges();
+            }
         }
-        public void OznaczJakoWykonane(int number)
+        public void OznaczJakoWykonane(int number, bool save = true)
         {
             foreach (var zadanie in baza.Zadania)
             {
@@ -50,7 +61,10 @@ namespace ToDoProjekt
                     zadanie.CzyZrobione = true;
                 }
             }
-            baza.SaveChanges();
+            if (save)
+            {
+                baza.SaveChanges();
+            }
         }
         public List<Zadanie> OdfiltrujNiewykonane()
         {
@@ -77,6 +91,17 @@ namespace ToDoProjekt
             //}
             //return wazne;
             return baza.Zadania.Where(x => x.Kategoria == kategoria).ToList();
+        }
+        public List<Zadanie> PrzeterminowaneZadania()
+        {
+            //foreach (var zadanie in baza.Zadania)
+            //{
+            //    if (zadanie.CzyZrobione == false && zadanie.Termin < DateTime.Now)
+            //    {
+            //        Console.WriteLine($"Termin zadania {zadanie.Id} minął {zadanie.Termin}.");
+            //    }
+            //}
+            return baza.Zadania.ToList().FindAll(x => x.CzyZrobione == false && x.Termin < DateTime.Now);
         }
     }
 }
