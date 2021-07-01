@@ -6,15 +6,15 @@ namespace serializacjaJSONzadanie
 {
     public class Przypadek
     {
-        private int id;
-        private DateTime date;
+        private string id;
+        private string date;
         private string voivodeship;
         private string region;
         private string gender;
         private string description;
 
-        public int ID { get => id; set => id = value; }
-        public DateTime DATE { get => date; set => date = value; }
+        public string ID { get => id; set => id = value; }
+        public string DATE { get => date; set => date = value; }
         public string VOIVODESHIP { get => voivodeship; set => voivodeship = value; }
         public string REGION { get => region; set => region = value; }
         public string GENDER { get => gender; set => gender = value; }
@@ -22,7 +22,7 @@ namespace serializacjaJSONzadanie
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{ID}. [{DATE}] {VOIVODESHIP} - {REGION} - {GENDER} - {DESCRIPTION}";
         }
     }
 }
